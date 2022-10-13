@@ -1,10 +1,10 @@
-package com.h2;
-
-import java.util.Arrays;
-import java.util.Map;
 import com.h2.MortgageCalculator;
 import com.h2.BestLoanRates;
 import com.h2.SavingsCalculator;
+
+import java.util.Arrays;
+import java.util.Map;
+
 
 public class Finance {
     public final static String BEST_LOAN_RATES = "bestLoanRates";
@@ -17,11 +17,11 @@ public class Finance {
     private static boolean validateCommandArguments(String[] args) {
         switch (args[0]) {
             case BEST_LOAN_RATES:
-                return (args.length == 1);
+                return args.length == 1;
             case SAVINGS_CALCULATOR:
-                return (args.length == 3);
+                return args.length == 3;
             case MORTGAGE_CALCULATOR:
-                return (args.length == 4);
+                return args.length == 4;
         }
         return false;
     }
@@ -52,7 +52,7 @@ public class Finance {
 
         boolean isValidCommand = validateCommandArguments(args);
         if (!isValidCommand) {
-            commandsToUsage.get(args[0]);
+            System.out.println(commandsToUsage.get(args[0]));
             return;
         }
 
